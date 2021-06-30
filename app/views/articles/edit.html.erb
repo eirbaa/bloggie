@@ -1,4 +1,6 @@
-<h1>Edit Article</h1>
+<h1><b> Edit Article <b> </h1>
+
+<%= render 'form' %>
 
 <% if @article.errors.any? %>
  <h2>The following errors prevented the article from saving:</h2>
@@ -9,21 +11,4 @@
  </ul>
 <% end %>
 
-<%= form_for @article do |f| %>
- <p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
- </p>
-<p>
-  <%= f.label :description %><br>
-  <%= f.text_area :description %>
- </p>
- <p>
-   <%= f.submit %>
- </p>
-
-<% end %>
-
-
-<%= render 'form' %>
 <%= link_to 'Back', articles_path %>
