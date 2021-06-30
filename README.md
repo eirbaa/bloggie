@@ -1,9 +1,10 @@
-# README
+Bloggie Project
 
 To get the application up and running:
 
 *Clone the repository
-
+ $ https://github.com/eirbaa/bloggie.git
+ 
 *Making sure that your system  has the proper prerequisites installed. These include:
 Ruby 3.0.1p64
 psql (PostgreSQL) 11.12 (Debian 11.12-0+deb10u1)
