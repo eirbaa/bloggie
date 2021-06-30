@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
 def create
   @article = Article.new(article_params)
-  @article.user = User.first
+  @article.user = current_user
   if @article.save
    flash[:success] = "Article was successfully created"
    redirect_to article_path(@article)
@@ -42,10 +42,18 @@ def destroy
   redirect_to articles_path
  end
 
+def tagged
+  if params[:tag].present?
+    @articles = Article.tagged_with(params[:tag])
+  else
+    @articles = Article.all
+  end
+end
+
 private
   def article_params
-   params.require(:article).permit(:title, :description)
-  end
+   params.require(:article).permit(:title, :description, :tag_list)
+	end
 
   def set_article
    @article = Article.find(params[:id])
